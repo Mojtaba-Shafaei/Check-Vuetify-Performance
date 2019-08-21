@@ -3,7 +3,7 @@
     <h1>This is Home page</h1>
 
     <v-btn @click="gotoTestGridCustom">Test Grid Custom</v-btn>
-    <v-btn @click="gotoTestTable">Test Table Component</v-btn>
+    <v-btn class="ml-2" @click="gotoTestTable">Test Table Component</v-btn>
     <v-btn class="ml-2" @click="gotoTooFields">Test Too Input Fields</v-btn>
   </div>
 </template>
