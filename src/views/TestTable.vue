@@ -39,13 +39,13 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         v-model="editedItem.first_name"
-                        label="first_name"
+                        label="First Name"
                       ></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         v-model="editedItem.last_name"
-                        label="last_name"
+                        label="Last Name"
                       ></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
@@ -63,7 +63,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         v-model="editedItem.ip_address"
-                        label="IP Aaddress"
+                        label="IP Address"
                       ></v-text-field>
                     </v-col>
                   </v-row>
