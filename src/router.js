@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
+import GridTesting from "./views/GridTesting";
 
 Vue.use(Router);
 
@@ -22,6 +23,11 @@ export default new Router({
       component: function() {
         return import(/* webpackChunkName: "about" */ "./views/About.vue");
       }
+    },
+    {
+      path: "/test-grid",
+      name: "test-grid",
+      component: GridTesting
     }
   ]
 });
