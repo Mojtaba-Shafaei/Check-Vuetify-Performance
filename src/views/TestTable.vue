@@ -1,39 +1,45 @@
 <template>
   <v-container class="my-5">
-    <h1 class="blue--text">This is Test Grid Page</h1>
-    <v-btn @click="show_image = !show_image">Toggle AVATARS</v-btn>
-    <hr size="2px" class="mt-3 mb-3" />
-    <v-layout row wrap v-for="user in users" :key="user.id"  class="pt-12 pb-3" >
-        <v-flex class="xl1 lg1 md1"> <div class="caption grey--text">ID</div><div>{{ user.id }}</div> </v-flex>
-        <v-flex class="xl1 lg1 md3"> <div class="caption grey--text">First Name</div><div>{{ user.first_name }}</div>  </v-flex>
-        <v-flex class="xl1 lg1 md3"> <div class="caption grey--text">Last Nmae</div><div>{{ user.last_name }}</div>  </v-flex>
-        <v-flex class="xl1 lg1 md1"> <div class="caption grey--text">Father`s Name</div><div>{{ user.father_name }}</div>  </v-flex>
-        <v-flex class="xl1 lg1 md1"> <div class="caption grey--text">Gender</div><div>{{ user.gender }}</div> </v-flex>
-        <v-flex class="xl2 lg1 md1"> <div class="caption grey--text">Email</div><div>{{ user.email }}</div> </v-flex>
-        <v-flex class="xl1 lg1 md1"> <div class="caption grey--text">IP Address</div><div>{{ user.ip_address }}</div> </v-flex>
-        <v-flex class="xl1 lg1 md2"> <div class="caption grey--text">Birth Date</div><div>{{ user.birthdate }}</div> </v-flex>
-        <v-flex class="xl1 lg1 md2"> <div class="caption grey--text">UserName</div><div>{{ user.user_name }}</div>  </v-flex>
-        <v-flex class="xl4 lg1 md2"> <div class="caption grey--text">Address</div><div>{{ user.address }}</div>  </v-flex>
+    <h1 class="blue--text">This is For Test Table</h1>
 
-      <v-responsive class="pt-4" v-if="show_image">
-        <v-avatar
-          size="56"
-          class="grey"
-          style="border-width:1px;border-color:grey;border-style:solid"
-        >
-          <v-img :src="user.avtar" />
-        </v-avatar>
-      </v-responsive>
-    </v-layout>
+    <v-data-table
+      v-model="selected"
+      :headers="headers"
+      :items="users"
+      :single-select="singleSelect"
+      item-key="id"
+      show-select
+      class="elevation-1"
+    >
+      <template v-slot:top>
+        <v-switch
+          v-model="singleSelect"
+          label="Single select"
+          class="pa-3"
+        ></v-switch>
+      </template>
+    </v-data-table>
   </v-container>
 </template>
 
 <script>
 export default {
-  name: "GridTesting",
   data() {
     return {
-      show_image: false,
+      singleSelect: false,
+      selected: [],
+      headers: [
+        { text: "ID", value: "id" },
+        { text: "First Name", value: "first_name" },
+        { text: "Last Name", value: "last_name" },
+        { text: "Father", value: "father_name" },
+        { text: "User Name", value: "user_name" },
+        { text: "Birth Day", value: "birthdate" },
+        { text: "Email", value: "email" },
+        { text: "Gender", value: "gender" },
+        { text: "IP Address", value: "ip_address" },
+        { text: "Address", value: "address" }
+      ],
       users: [
         {
           id: 1,
@@ -13738,5 +13744,3 @@ export default {
   }
 };
 </script>
-
-<style scoped></style>
